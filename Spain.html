@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">  
+    <title>Explore Spain</title>
+    <style>
+      :root {
+    --primary-color: #ff6347;
+    --secondary-color: #333;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar .container {
+      max-width: 1280px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--primary-color);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+/* Hero Section */
+.hero {
+    position: relative;
+    margin-top: 120px;
+}
+
+.hero img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    display: block;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero .overlay h1 {
+    font-size: 4em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero .overlay p {
+    font-size: 1.5em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  color: #ff6e40; /* your brand orange */
+  font-size: 28px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.carousel-arrow:hover {
+  background-color: #ffe2d8;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-arrow.left {
+  left: 20px;
+}
+
+.carousel-arrow.right {
+  right: 20px;
+}
+
+.content {
+    padding: 20px 5%;
+}
+
+.content h2 {
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.content ul {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+          <a href="homepage.html" class="logo">Travel Tales</a>
+          <div class="nav-links">
+            <a href="homepage.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="blog destination.html">Blogs</a>
+            <a href="Destination.html">Destinations</a>
+          </div>
+        </div>
+      </nav>
+
+    <div class="hero">
+        <img src="assets/ibiza.jpg" alt="Beautiful Spain">
+        <div class="overlay">
+            <h1>Spain</h1>
+            <p id="image-text">Lose yourself in the electric rhythm of Ibiza's sun-kissed shores.</p>
+        </div>
+        <div class="arrows">
+            <div class="carousel-arrow left" onclick="prevImage()">&#10094;</div>
+            <div class="carousel-arrow right" onclick="nextImage()">&#10095;</div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Discover Spain</h2>
+        <p>From sun-drenched beaches to rugged mountain peaks, Spain’s landscapes dazzle with dramatic beauty. <br>Iconic landmarks like Gaudí’s Sagrada Família and the Alhambra’s Moorish splendor reveal its layered history.<br>
+
+The soul of Spain pulses in flamenco’s fiery rhythms, bustling tapas bars, and vibrant fiestas like La Tomatina.<br> Savor jamón ibérico, paella, and crisp Rioja wines—a feast of flavors shaped by diverse regions.<br>
+
+Born from Celtic, Roman, and Arab roots, Spain enchants with its warm spirit, where ancient traditions meet modern energy in every sunlit plaza.</p>
+    </div>
+    <!-- Travel Destinations Section -->
+    <div class="content">
+        <h2>Top Travel Destinations</h2>
+        <ul>
+               <li><strong>Sagrada Família (Barcelona):</strong> Gaudí's unfinished masterpiece, a surreal blend of Gothic and Art Nouveau architecture.</li>
+  <li><strong>Alhambra (Granada):</strong> A Moorish palace complex with intricate carvings, fountains, and panoramic views of the Sierra Nevada.</li>
+  <li><strong>Park Güell (Barcelona):</strong> A whimsical public park designed by Gaudí, featuring colorful mosaics and dreamlike structures.</li>
+  <li><strong>La Rambla (Barcelona):</strong> A vibrant tree-lined boulevard buzzing with street performers, markets, and outdoor cafés.</li>
+  <li><strong>Prado Museum (Madrid):</strong> One of the world's finest art museums, housing masterpieces by Velázquez, Goya, and El Greco.</li>
+  <li><strong>Mezquita-Catedral (Córdoba):</strong> A stunning mosque-cathedral with a forest of striped arches and a history of religious coexistence.</li>
+  <li><strong>Ibiza:</strong> Famous for its electrifying nightlife, but also home to serene coves and UNESCO-listed old town.</li>
+  <li><strong>Camino de Santiago:</strong> A historic pilgrimage route ending at Santiago de Compostela's majestic cathedral.</li>
+  <li><strong>San Sebastián:</strong> A culinary capital with Michelin-starred pintxos bars and crescent-shaped La Concha beach.</li>
+  <li><strong>Toledo:</strong> A medieval walled city where Christian, Jewish, and Moorish heritage intertwine.</li>
+  <li><strong>Canary Islands:</strong> Volcanic landscapes, black-sand beaches, and year-round sunshine in Spain's Atlantic paradise.</li>
+        </ul>
+    </div>
+    
+    <!-- Travel Tips Section -->
+    <div class="content">
+        <h2>Travel Tips</h2>
+        <ul> 
+       <li> Seasonal Planning: Visit April-June or September-October for pleasant weather. Avoid August crowds/heat in cities. Ski season runs December-March in Pyrenees/Sierra Nevada.</li>
+
+   <li> Pack Smart: Light layers for summer, warmer clothes for winter/evenings, comfortable walking shoes for cobblestone streets, and a swimsuit for beach destinations.</li>
+
+    <li>Taste Safety: Enjoy tapas, paella, and jamón ibérico at busy restaurants. Be cautious with shellfish in summer. Tap water is safe to drink in most cities.</li>
+
+    <li>Respect Culture: Dress modestly in churches (cover shoulders/knees), observe siesta quiet hours (2-5pm in small towns), and learn basic greetings.</li>
+
+    <li>Stay Protected: Use high SPF sunscreen (even in spring), watch for pickpockets in tourist areas, and carry a reusable water bottle.</li>
+
+   <li> Safe Transport: Use Renfe for trains, ALSA for buses, and official taxis (with meters). Book high-speed AVE trains in advance.</li>
+
+   <li> Learn Spanish Basics: "Hola" (Hello), "Gracias" (Thank you), "¿Cuánto cuesta?" (How much?), "La cuenta, por favor" (Check please).</li>
+
+   <li> Book Early: Reserve accommodations for Semana Santa (Easter), August beach towns, and popular sites like Alhambra (months ahead).</li>
+
+   <li> Guard Against Theft: Use crossbody bags in crowded areas (Las Ramblas, metro), avoid displaying expensive cameras/phones.</li>
+
+    <li>Stay Charged: Bring a Type F plug adapter (220V), portable charger for day trips. Free WiFi is common in cafés.</li>
+
+    <li>Emergency Contacts: Police (112), Ambulance (061), Tourist Police (+34 902 102 112).</li>
+
+    <li>Health Prep: No required vaccines. Carry motion sickness pills for mountain roads and any personal medications.</li>
+       </ul>
+    </div>
+    
+<script>
+        // Array of image paths and their corresponding text
+        const images = [
+            { src: "assets/ibiza.jpg", text: "Lose yourself in the electric rhythm of Ibiza's sun-kissed shores." },
+            { src: "assets/toledo.jpg", text: "Wander through centuries of history in Spain's golden-walled treasure in Toledo." },
+            { src: "assets/canary.jpeg", text: "Canary islands - Where volcanic landscapes meet endless ocean horizons." },
+            { src: "assets/prado.jpg", text: "Step into a world where Spanish masters whisper their timeless stories in Prado Museum." }
+        ];
+        let currentIndex = 0;
+    
+        // References to the image and text
+        const heroImage = document.querySelector(".hero img");
+        const overlayText = document.getElementById("image-text");
+    
+        // Update the hero section content
+        function updateContent() {
+            heroImage.src = images[currentIndex].src; // Change the image source
+            overlayText.textContent = images[currentIndex].text; // Update the text below "Spain"
+        }
+    
+        // Previous Image Functionality
+        function prevImage() {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            updateContent();
+        }
+    
+        // Next Image Functionality
+        function nextImage() {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            updateContent();
+        }
+    </script>
+    <footer>
+        <p>&copy; 2025 Travel Tales | All Rights Reserved</p>    

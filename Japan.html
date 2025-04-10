@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">  
+    <title>Explore Japan</title>
+    <style>
+             :root {
+    --primary-color: #ff6347;
+    --secondary-color: #333;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar .container {
+      max-width: 1280px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--primary-color);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+/* Hero Section */
+.hero {
+    position: relative;
+    margin-top: 120px;
+}
+
+.hero img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    display: block;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero .overlay h1 {
+    font-size: 4em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero .overlay p {
+    font-size: 1.5em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  color: #ff6e40; /* your brand orange */
+  font-size: 28px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.carousel-arrow:hover {
+  background-color: #ffe2d8;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-arrow.left {
+  left: 20px;
+}
+
+.carousel-arrow.right {
+  right: 20px;
+}
+
+.content {
+    padding: 20px 5%;
+}
+
+.content h2 {
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.content ul {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 10px;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+          <a href="homepage.html" class="logo">Travel Tales</a>
+          <div class="nav-links">
+            <a href="homepage.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="blog destination.html">Blogs</a>
+            <a href="Destination.html">Destinations</a>
+          </div>
+        </div>
+      </nav>
+
+    <div class="hero">
+        <img src="assets/fuji.jpg" alt="Beautiful Japan">
+        <div class="overlay">
+            <h1>Japan</h1>
+            <p id="image-text">Where clouds kneel at the feet of Fuji's perfection.</p>
+        </div>
+        <div class="arrows">
+            <div class="carousel-arrow left" onclick="prevImage()">&#10094;</div>
+            <div class="carousel-arrow right" onclick="nextImage()">&#10095;</div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Discover Japan</h2>
+        <p>From the snow-capped peak of Mount Fuji to the neon-lit streets of Tokyo, Japan dazzles with contrasts.<br>
+
+Iconic sights like Kyoto’s golden temples, Hiroshima’s Peace Memorial, and the cherry blossoms of Yoshino reveal its deep history and reverence for nature.<br>
+
+Known for the precision of tea ceremonies, the energy of Shibuya Crossing, and the artistry of sushi, Japan balances serenity and innovation.<br>
+
+With a spirit shaped by samurai heritage, Buddhist tranquility, and cutting-edge technology, Japan enchants all who explore its timeless beauty.</p>
+    </div>
+    <!-- Travel Destinations Section -->
+    <div class="content">
+        <h2>Top Travel Destinations</h2>
+        <ul>
+              <li><strong>Mount Fuji:</strong> Japan's iconic snow-capped volcano and UNESCO World Heritage Site, perfect for hiking or scenic views.</li> 
+              <li><strong>Tokyo:</strong> A dazzling metropolis blending futuristic skyscrapers, historic temples, and vibrant districts like Shibuya and Shinjuku.</li> 
+              <li><strong>Kyoto:</strong> The cultural heart of Japan, home to golden Kinkaku-ji, Fushimi Inari’s red torii gates, and traditional tea houses.</li> 
+              <li><strong>Hiroshima Peace Memorial Park :</strong> A poignant tribute to WWII history, with the iconic Atomic Bomb Dome.</li> 
+              <li><strong>Osaka:</strong> A food lover’s paradise with bustling Dotonbori, Osaka Castle, and world-famous street food like takoyaki.</li>
+              <li><strong>Miyajima Island:</strong> The floating torii gate of Itsukushima Shrine, best seen at high tide.</li> 
+              <li><strong>Hakone:</strong> Hot spring retreat with views of Mount Fuji, pirate ships on Lake Ashi, and open-air museums.</li> 
+        </ul>
+    </div>
+    
+    <!-- Travel Tips Section -->
+    <div class="content">
+        <h2>Travel Tips</h2>
+        <ul> 
+       <li> Seasonal Planning: Visit March-May for cherry blossoms or October-November for autumn foliage. Avoid Golden Week (late April-early May) for fewer crowds. Skip typhoon season (September).</li>
+
+   <li> Pack Smart: Light layers for humid summers, warm clothes for winter, slip-off shoes for temples, and a small umbrella for sudden rain.</li>
+
+   <li> Taste Safety: Enjoy sushi, ramen, and tempura at reputable spots. Try izakayas (pub-style eateries) but be cautious with raw seafood in remote areas.</li>
+
+    <li>Respect Culture: Bow when greeting, remove shoes indoors, avoid loud phone calls on trains, and never stick chopsticks upright in rice (funeral symbol).</li>
+
+   <li> Stay Protected: Use sunscreen in summer, carry hand sanitizer (few public soap dispensers), and drink tap water (safe nationwide).</li>
+
+   <li> Safe Transport: Use IC cards (Suica/Pasmo) for trains/buses, reserve Shinkansen (bullet train) seats early, and avoid rush hour (7:30-9:30am).</li>
+
+   <li> Learn Japanese Basics: “Konnichiwa” (Hello), “Arigato” (Thank you), “Sumimasen” (Excuse me), and “Ikura desu ka?” (How much?).</li>
+
+   <li> Book Early: Secure hotels for cherry blossom season, New Year’s, and Gion Matsuri (July). Book Ghibli Museum/Jiufen day trips weeks ahead.</li>
+
+    <li>Guard Against Pickpockets: Rare but possible in crowded areas like Shibuya or Shinjuku. Keep wallets in front pockets.</li>
+
+    <li>Stay Charged: Portable Wi-Fi routers > SIM cards for group travel. Outlets: 100V, Type A/B (no adapter needed for US plugs).</li>
+
+   <li> Emergency Contacts: Police (110), Ambulance (119), Tourist Hotline (050-3816-2787, English support).</li>
+
+   <li> Health Prep: No mandatory vaccines. Bring allergy meds (cedar pollen in spring) and motion sickness pills for windy mountain roads.</li>
+       </ul>
+    </div>
+    
+<script>
+        // Array of image paths and their corresponding text
+        const images = [
+            { src: "assets/fuji.jpg", text: "Where clouds kneel at the feet of Fuji's perfection." },
+            { src: "assets/tokyo.jpg", text: "Tokyo-Neon dreams meet timeless tradition in the world's future city." },
+            { src: "assets/osaka.jpg", text: "Feast where the streets sizzle with flavor and unbridled joy in Osaka." },
+            { src: "assets/kyoto.jpg", text: "Kyoto, where ancient temples whisper tales of a thousand years." }
+        ];
+        let currentIndex = 0;
+    
+        // References to the image and text
+        const heroImage = document.querySelector(".hero img");
+        const overlayText = document.getElementById("image-text");
+    
+        // Update the hero section content
+        function updateContent() {
+            heroImage.src = images[currentIndex].src; // Change the image source
+            overlayText.textContent = images[currentIndex].text; // Update the text below "Japan"
+        }
+    
+        // Previous Image Functionality
+        function prevImage() {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            updateContent();
+        }
+    
+        // Next Image Functionality
+        function nextImage() {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            updateContent();
+        }
+    </script>
+    <footer>
+        <p>&copy; 2025 Travel Tales | All Rights Reserved</p>    

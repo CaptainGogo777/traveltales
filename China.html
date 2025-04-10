@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">  
+    <title>Explore China</title>
+    <style>
+      :root {
+    --primary-color: #ff6347;
+    --secondary-color: #333;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar .container {
+      max-width: 1280px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--primary-color);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+/* Hero Section */
+.hero {
+    position: relative;
+    margin-top: 120px;
+}
+
+.hero img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    display: block;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero .overlay h1 {
+    font-size: 4em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero .overlay p {
+    font-size: 1.5em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  color: #ff6e40; /* your brand orange */
+  font-size: 28px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.carousel-arrow:hover {
+  background-color: #ffe2d8;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-arrow.left {
+  left: 20px;
+}
+
+.carousel-arrow.right {
+  right: 20px;
+}
+
+.content {
+    padding: 20px 5%;
+}
+
+.content h2 {
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.content ul {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+          <a href="homepage.html" class="logo">Travel Tales</a>
+          <div class="nav-links">
+            <a href="homepage.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="blog destination.html">Blogs</a>
+            <a href="Destination.html">Destinations</a>
+          </div>
+        </div>
+      </nav>
+
+    <div class="hero">
+        <img src="assets/greatwall.jpg" alt="Beautiful China">
+        <div class="overlay">
+            <h1>China</h1>
+            <p id="image-text">Embrace the vibrant soul of The Great Wall Of China.</p>
+        </div>
+        <div class="arrows">
+            <div class="carousel-arrow left" onclick="prevImage()">&#10094;</div>
+            <div class="carousel-arrow right" onclick="nextImage()">&#10095;</div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Discover China</h2>
+        <p>China: Where Ancient Wonders Meet Modern Marvels
+        <br>From the Great Wall to Shanghai's skyline, China blends breathtaking landscapes with rich history. Walk through imperial palaces in Beijing, see Terracotta Warriors in Xi'an, or cruise the Li River's karst mountains.<br>
+       Experience vibrant street food, serene tea houses, and futuristic cities—all woven together by 5,000 years of culture. A land of pandas, poetry, and endless discovery.<br>
+         </p>
+    </div>
+    <!-- Travel Destinations Section -->
+    <div class="content">
+        <h2>Top Travel Destinations</h2>
+        <ul>
+              <li><strong>The Great Wall Of China:</strong> A UNESCO World Heritage Site and one of the Seven Wonders of the World, stretching over 13,000 miles.</li> 
+              <li><strong>Forbidden City (Beijing):</strong> The imperial palace of Ming and Qing dynasties, filled with historical treasures.</li> 
+              <li><strong>Terracotta Army (Xi'an):</strong> Thousands of life-sized clay soldiers guarding Emperor Qin Shi Huang’s tomb.</li> 
+              <li><strong>Li River & Yangshuo:</strong> Stunning karst landscapes and scenic river cruises in Guilin.</li> 
+              <li><strong>Zhangjiajie National Park:</strong> Towering sandstone pillars that inspired Avatar’s floating mountains.</li>
+              <li><strong>Jiuzhaigou Valley:</strong> Vibrant turquoise lakes and waterfalls in Sichuan’s pristine nature reserve.</li> 
+              <li><strong>Mogao Caves (Dunhuang):</strong>Ancient Buddhist caves with intricate murals along the Silk Road.</li> 
+            
+        </ul>
+    </div>
+    
+    <!-- Travel Tips Section -->
+    <div class="content">
+        <h2>Travel Tips</h2>
+        <ul> 
+        <li>Best Time to Visit:
+    Spring (April-May) and autumn (September-October) for pleasant weather. Avoid national holidays like Golden Week (Oct 1-7) for fewer crowds.</li>
+
+   <li> What to Pack:
+    Comfortable walking shoes, layered clothing for varying climates, VPN for internet access, and a reusable water bottle.</li>
+
+   <li> Food & Water Safety:
+    Enjoy local delicacies like Peking duck and dumplings, but stick to bottled water and busy restaurants for fresh meals.</li>
+
+   <li> Cultural Respect:
+    Dress modestly at religious sites, avoid sensitive topics in conversation, and learn basic Mandarin phrases for better interactions.</li>
+
+    <li>Health Precautions:
+    Carry necessary medications, check air quality in cities, and consider masks for pollution or crowded areas.</li>
+
+   <li> Getting Around:
+    Use high-speed trains for long distances, Didi for taxis, and avoid public transport during rush hours.</li>
+
+   <li> Money Matters:
+    Set up mobile payments (Alipay/WeChat Pay) before arrival and carry some cash for smaller vendors.</li>
+
+    <li>Safety Tips:
+    Be cautious of pickpockets in tourist areas, keep emergency numbers handy (Police: 110, Ambulance: 120), and use reputable transport services.</li>
+
+    <li>Tech Essentials:
+    Download Baidu Maps or Amap for navigation, and bring a power adapter for your devices.</li>
+
+   <li> Booking Advice:
+    Reserve tickets for major attractions like the Great Wall and Forbidden City in advance to skip long lines.</li>
+       </ul>
+    </div>
+    
+<script>
+        // Array of image paths and their corresponding text
+        const images = [
+            { src: "assets/greatwall.jpg", text: "Walk the timeless stones of the Great Wall, where ancient whispers meet endless horizons." },
+            { src: "assets/beijing.jpg", text: "Step into the Forbidden City, where emperors ruled and golden legends still breathe." },
+            { src: "assets/nationalpark.jpg", text: "Wander Zhangjiajie’s floating peaks—nature’s pillars piercing the clouds like a painted scroll." },
+            { src: "assets/valley.jpg", text: "Lose yourself in Jiuzhaigou Valley’s dreamscape—where turquoise lakes mirror heaven’s palette." }
+        ];
+        let currentIndex = 0;
+    
+        // References to the image and text
+        const heroImage = document.querySelector(".hero img");
+        const overlayText = document.getElementById("image-text");
+    
+        // Update the hero section content
+        function updateContent() {
+            heroImage.src = images[currentIndex].src; // Change the image source
+            overlayText.textContent = images[currentIndex].text; // Update the text below "China"
+        }
+    
+        // Previous Image Functionality
+        function prevImage() {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            updateContent();
+        }
+    
+        // Next Image Functionality
+        function nextImage() {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            updateContent();
+        }
+    </script>
+    <footer>
+        <p>&copy; 2025 Travel Tales | All Rights Reserved</p>    

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"> 
+    <title>Explore Mexico</title>
+    <style>
+      :root {
+    --primary-color: #ff6347;
+    --secondary-color: #333;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar .container {
+      max-width: 1280px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--primary-color);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+/* Hero Section */
+.hero {
+    position: relative;
+    margin-top: 120px;
+}
+
+.hero img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    display: block;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero .overlay h1 {
+    font-size: 4em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero .overlay p {
+    font-size: 1.5em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  color: #ff6e40; /* your brand orange */
+  font-size: 28px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.carousel-arrow:hover {
+  background-color: #ffe2d8;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-arrow.left {
+  left: 20px;
+}
+
+.carousel-arrow.right {
+  right: 20px;
+}
+
+.content {
+    padding: 20px 5%;
+}
+
+.content h2 {
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.content ul {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+          <a href="homepage.html" class="logo">Travel Tales</a>
+          <div class="nav-links">
+            <a href="homepage.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="blog destination.html">Blogs</a>
+            <a href="Destination.html">Destinations</a>
+          </div>
+        </div>
+      </nav>
+
+    <div class="hero">
+        <img src="assets/mexico1.jpg" alt="Beautiful Mexico">
+        <div class="overlay">
+            <h1>Mexico</h1>
+            <p id="image-text">Let Mexico City's electric heartbeat ignite your senses.</p>
+        </div>
+        <div class="arrows">
+            <div class="carousel-arrow left" onclick="prevImage()">&#10094;</div>
+            <div class="carousel-arrow right" onclick="nextImage()">&#10095;</div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Discover Mexico</h2>
+        <p>From Mayan ruins to colonial cities, Mexico blends ancient wonders with vibrant culture. <br>Taste fiery salsas, hear mariachi music, and explore landscapes from beaches to jungles.<br> A country where tradition and modernity dance together.</p>
+    </div>
+    <!-- Travel Destinations Section -->
+    <div class="content">
+        <h2>Top Travel Destinations</h2>
+        <ul>
+              <li><strong>Chichén Itzá:</strong> A stunning ancient Mayan city and UNESCO World Heritage Site, home to the famous El Castillo pyramid.</li>
+<li><strong>Cancún & the Riviera Maya:</strong> Pristine beaches, turquoise waters, and world-class resorts along the Caribbean coast.</li>
+<li><strong>Mexico City:</strong> A vibrant capital with historic landmarks like the Zócalo, Frida Kahlo Museum, and Chapultepec Park.</li>
+<li><strong>Tulum:</strong> A breathtaking coastal Mayan ruin overlooking the Caribbean Sea, blending history and natural beauty.</li>
+<li><strong>Teotihuacán:</strong> The "City of the Gods," featuring the massive Pyramid of the Sun and Moon near Mexico City.</li>
+<li><strong>Oaxaca:</strong> A cultural gem known for its colonial architecture, vibrant markets, and rich indigenous traditions.</li>
+<li><strong>Copper Canyon (Barrancas del Cobre):</strong> A dramatic canyon system larger and deeper than the Grand Canyon, perfect for hiking and train rides.</li>
+<li><strong>Day of the Dead (Día de los Muertos):</strong> A UNESCO-recognized festival celebrating ancestors with colorful altars, parades, and traditions.</li>
+        </ul>
+    </div>
+    
+    <!-- Travel Tips Section -->
+    <div class="content">
+        <h2>Travel Tips</h2>
+        <ul> 
+   <li> Seasonal Planning: Visit between November-April (dry season) for ideal beach weather. Avoid hurricane season (June-October) in coastal areas.</li>
+
+<li>Pack Smart: Lightweight clothing for heat, a light jacket for cooler highlands (e.g., Mexico City), and comfortable shoes for cobblestone streets.</li>
+
+<li>Eat Safely: Enjoy tacos al pastor, mole, and fresh seafood, but choose busy food stalls with high turnover for hygiene.</li>
+
+<li>Respect Culture: Dress modestly at religious sites (e.g., churches), ask permission before photographing indigenous communities, and greet locals with “Buenos días/tardes.”</li>
+
+<li>Stay Protected: Use reef-safe sunscreen, insect repellent (for jungles/Chiapas), and drink bottled or purified water (avoid ice in questionable places).</li>
+
+<li>Safe Transport: Use Uber (available in major cities) or authorized taxis (sitios). Avoid unmarked cabs, especially at night.</li>
+
+<li>Learn Spanish Basics: “Hola” (Hello), “Gracias” (Thank you), and “¿Cuánto cuesta?” (How much?).</li>
+
+<li>Book Early: Reserve accommodations for peak seasons like Day of the Dead (late Oct/early Nov) or Christmas.</li>
+
+<li>Guard Against Pickpockets: Keep valuables secure in crowded areas (markets, metro) and avoid flashing expensive items.</li>
+
+<li>Stay Charged: Bring a power bank (outlets: 127V, Type A/B). Some areas may have voltage fluctuations.</li>
+
+<li>Emergency Contacts: Police (911), Tourist Assistance Hotline (800-006-8839), and your embassy’s local number.</li>
+
+<li>Health Prep: Check CDC recommendations for vaccines (e.g., Hepatitis A). Carry altitude sickness meds for high-elevation cities.</li>
+       </ul>
+    </div>
+    
+<script>
+        // Array of image paths and their corresponding text
+        const images = [
+            { src: "assets/mexico1.jpg", text: "Let Mexico City's electric heartbeat ignite your senses." },
+            { src: "assets/tulum.jpg", text: "Breathe in Tulum's sacred duality: jungle whispers and Caribbean sighs." },
+            { src: "assets/canyon.jpg", text: "Let Copper Canyon's rugged poetry etch itself into your soul." },
+            { src: "assets/oaxaca.jpg", text: "Fall under Oaxaca's spell – where ancient traditions dance in cobblestone streets." }
+        ];
+        let currentIndex = 0;
+    
+        // References to the image and text
+        const heroImage = document.querySelector(".hero img");
+        const overlayText = document.getElementById("image-text");
+    
+        // Update the hero section content
+        function updateContent() {
+            heroImage.src = images[currentIndex].src; // Change the image source
+            overlayText.textContent = images[currentIndex].text; // Update the text below "Brazil"
+        }
+    
+        // Previous Image Functionality
+        function prevImage() {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            updateContent();
+        }
+    
+        // Next Image Functionality
+        function nextImage() {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            updateContent();
+        }
+    </script>
+    <footer>
+        <p>&copy; 2025 Travel Tales | All Rights Reserved</p>    

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>About | Travel Blog</title>
+    <style>
+        :root {
+            --primary-color: #ff6347;
+            --secondary-color: #333;
+            --background-color: #f4f4f4;
+            --text-color: #333;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+    font-family: var(--font-sans);
+    background: url('assets/pic1.png') no-repeat center bottom;
+    background-size: 100% auto;
+    background-attachment: fixed;
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-top: 80px; /* Ensures the content starts below the navbar */
+}
+
+.container {
+    position: relative;
+    top: 0; /* Reset top to avoid overlap */
+    left: 15%; /* Shifted the container slightly to the right */
+    max-width: 600px; /* Increased the width */
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 40px; /* Reduced spacing from the navbar */
+}
+
+        .container h1 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #ff4500;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            height: 80px; /* Ensures fixed height */
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-family: var(--font-serif);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            padding: 5px 10px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            background-color: rgba(255, 99, 71, 0.1);
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="homepage.html" class="logo">Travel Tales</a>
+        <div class="nav-links">
+            <a href="homepage.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="blog destination.html">Blog</a>
+            <a href="Destination.html">Destinations</a>
+        </div>
+    </div>
+    <div class="container">
+        <centre> <h1>Hey there!</h1></centre>
+        <p>
+            Have you always wanted to travel the world but don’t think you can afford it, or maybe you don’t have anyone to go with?
+        </p>
+        <p>
+            I used to feel the same way. I spent countless hours scrolling through Instagram, wondering how young people managed to travel so often. Then, I stumbled upon a travel vlog and learned how to make travel affordable and achievable. From there, my solo journey began.
+        </p>
+        <p>
+            In 2025, We created this blog to share adventures and inspire others to explore the world on a budget. Whether you’re a dreamer, a planner, or just someone seeking inspiration, this blog is for you.
+        </p>
+        <a href="Destination.html" class="cta-button">Discover Destinations</a>
+    </div>
+</body>
+</html>

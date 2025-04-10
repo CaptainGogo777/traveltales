@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"> 
+    <title>Explore Brazil</title>
+    <style>
+     :root {
+    --primary-color: #ff6347;
+    --secondary-color: #333;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar .container {
+      max-width: 1280px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: var(--primary-color);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav-links a {
+      margin-left: 20px;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+/* Hero Section */
+.hero {
+    position: relative;
+    margin-top: 120px;
+}
+
+.hero img {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    display: block;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero .overlay h1 {
+    font-size: 4em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero .overlay p {
+    font-size: 1.5em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  color: #ff6e40; /* your brand orange */
+  font-size: 28px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.carousel-arrow:hover {
+  background-color: #ffe2d8;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-arrow.left {
+  left: 20px;
+}
+
+.carousel-arrow.right {
+  right: 20px;
+}
+
+.content {
+    padding: 20px 5%;
+}
+
+.content h2 {
+    font-size: 36px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.content ul {
+    margin-left: 20px;
+    list-style-type: disc;
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+          <a href="homepage.html" class="logo">Travel Tales</a>
+          <div class="nav-links">
+            <a href="homepage.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="blog destination.html">Blogs</a>
+            <a href="Destination.html">Destinations</a>
+          </div>
+        </div>
+      </nav>
+
+
+    <div class="hero">
+        <img src="assets/rio.jpg" alt="Beautiful Brazil">
+        <div class="overlay">
+            <h1>Brazil</h1>
+            <p id="image-text">Embrace the vibrant soul of Rio de Janeiro.</p>
+        </div>
+        <div class="arrows">
+            <div class="carousel-arrow left" onclick="prevImage()">&#10094;</div>
+            <div class="carousel-arrow right" onclick="nextImage()">&#10095;</div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Discover Brazil</h2>
+        <p>Brazil is a vibrant tapestry of natural splendor and cultural richness. From the mighty Amazon Rainforest to the golden beaches of Rio de Janeiro, its landscapes dazzle with diversity. 
+        <br>Iconic symbols like Christ the Redeemer, the colonial streets of Salvador, and the futuristic capital Brasília mirror its layered history.<br>
+       Known for Carnival’s electrifying energy and the rhythmic soul of samba, Brazil pulses with life and celebration. Its cuisine—feijoada, churrasco, and tropical fruits—offers a taste of its multicultural roots. <br>
+         With a spirit shaped by indigenous, African, and European heritage, Brazil captivates all who embrace its warmth and vitality.</p>
+    </div>
+    <!-- Travel Destinations Section -->
+    <div class="content">
+        <h2>Top Travel Destinations</h2>
+        <ul>
+              <li><strong>Christ the Redeemer:</strong> An iconic statue and UNESCO World Heritage Site overlooking Rio de Janeiro from Corcovado Mountain.</li> 
+              <li><strong>Amazon Rainforest:</strong> Explore the world’s largest tropical rainforest, teeming with biodiversity and indigenous cultures.</li> 
+              <li><strong>Iguazu Falls:</strong> Marvel at the breathtaking cascades straddling the Brazil-Argentina border, a UNESCO site.</li> 
+              <li><strong>Rio de Janeiro:</strong> Vibrant beaches like Copacabana and cultural landmarks such as Sugarloaf Mountain.</li> 
+              <li><strong>São Paulo:</strong> Brazil’s bustling metropolis, famed for its culinary scene and cultural diversity.</li>
+              <li><strong>Manaus & the Meeting of Waters:</strong> Witness the confluence of the dark Rio Negro and sandy Amazon River.</li> 
+              <li><strong>Carnival in Rio:</strong> Immerse yourself in the world’s largest festival of music, dance, and vibrant parades.</li> 
+              <li><strong>Brasília:</strong> Admire futuristic modernist architecture, a UNESCO site and the nation’s capital.</li> 
+        </ul>
+    </div>
+    
+    <!-- Travel Tips Section -->
+    <div class="content">
+        <h2>Travel Tips</h2>
+        <ul> 
+    <li>Seasonal Planning: Visit between December-March (beach season) or July-October (Amazon dry season). Avoid heavy rains in the northeast (April-June).</li>
+
+    <li>Pack Smart: Lightweight clothes for heat, a jacket for cooler south/evenings, and sturdy shoes for hikes or cobblestone streets.</li>
+
+   <li> Taste Safely: Savor feijoada, pão de queijo, and churrasco, but opt for busy street food stalls with fresh preparation.</li>
+
+    <li>Respect Culture: Dress modestly in churches, avoid intrusive photos during Afro-Brazilian rituals, and embrace local warmth with a smile.</li>
+
+    <li>Stay Protected: Use sunscreen, insect repellent (for Amazon/Pantanal), and drink bottled water (avoid tap).</li>
+
+   <li> Safe Transport: Use apps like Uber or 99 Taxi, pre-book intercity buses, and avoid unmarked cabs at night.</li>
+
+    <li>Learn Portuguese Basics: “Olá” (Hello), “Obrigado/a” (Thank you), and “Quanto custa?” (How much?).</li>
+
+   <li> Book Early: Secure accommodations and flights for Carnival, New Year’s (Rio), or Fernando de Noronha.</li>
+
+    <li>Guard Against Pickpockets: Keep valuables hidden in cities, avoid deserted areas after dark, and use hotel safes.</li>
+
+   <li> Stay Charged: Carry a power bank for beach days or long excursions (outlets: 127V/220V, Type N).</li>
+
+    <li>Emergency Contacts: Police (190), Ambulance (192), Tourist Police (specific cities, e.g., Rio: +55 21 2334 6802).</li>
+
+   <li> Health Prep: Check if yellow fever vaccine is needed for Amazon trips and carry anti-diarrheal meds.  </li>
+       </ul>
+    </div>
+    
+<script>
+        // Array of image paths and their corresponding text
+        const images = [
+            { src: "assets/rio.jpg", text: "Embrace the vibrant soul of Rio de Janeiro." },
+            { src: "assets/amazon.jpg", text: "Immerse yourself in the untamed magic of the Amazon rainforest." },
+            { src: "assets/iguaza.jpg", text: "Surrender to the thundering grandeur of Iguazu Falls." },
+            { src: "assets/saupaulo.png", text: "Discover the boundless energy of São Paulo's urban symphony." }
+        ];
+        let currentIndex = 0;
+    
+        // References to the image and text
+        const heroImage = document.querySelector(".hero img");
+        const overlayText = document.getElementById("image-text");
+    
+        // Update the hero section content
+        function updateContent() {
+            heroImage.src = images[currentIndex].src; // Change the image source
+            overlayText.textContent = images[currentIndex].text; // Update the text below "Brazil"
+        }
+    
+        // Previous Image Functionality
+        function prevImage() {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            updateContent();
+        }
+    
+        // Next Image Functionality
+        function nextImage() {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            updateContent();
+        }
+    </script>
+    <footer>
+        <p>&copy; 2025 Travel Tales | All Rights Reserved</p>    
