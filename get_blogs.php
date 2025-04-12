@@ -5,7 +5,6 @@ $searchTerm = isset($_GET['search']) ? '%' . $_GET['search'] . '%' : null;
 $countryName = isset($_GET['country']) ? $_GET['country'] : null;
 
 if ($countryName) {
-    // Get country_id from countries table
     $sqlCountry = "SELECT country_id FROM countries WHERE country_name = ?";
     $stmtCountry = $conn->prepare($sqlCountry);
     $stmtCountry->bind_param("s", $countryName);
@@ -13,7 +12,7 @@ if ($countryName) {
     $resultCountry = $stmtCountry->get_result();
 
     if ($resultCountry->num_rows === 0) {
-        echo "Country not found.";
+        echo json_encode(["error" => "Country not found"]);
         exit;
     }
 
@@ -48,21 +47,20 @@ if ($countryName) {
     $stmtBlogs = $conn->prepare($sqlBlogs);
     $stmtBlogs->bind_param("sss", $searchTerm, $searchTerm, $searchTerm);
 } else {
-    echo "No country or search term provided.";
+    echo json_encode(["error" => "No country or search term provided"]);
     exit;
 }
 
+$stmtBlogs->execute();
+$blogs_result = $stmtBlogs->get_result();
 
-        $blogs = [];
-        while ($blog = $blogs_result->fetch_assoc()) {
-            $blogs[] = $blog;
-        }
-
-        echo json_encode($blogs);
-    } else {
-        echo json_encode(["error" => "Country not found"]);
-    }
-} else {
-    echo json_encode(["error" => "Country not provided"]);
+$blogs = [];
+while ($blog = $blogs_result->fetch_assoc()) {
+    $blogs[] = $blog;
 }
+
+echo json_encode($blogs);
+
+$stmtBlogs->close();
+$conn->close();
 ?>

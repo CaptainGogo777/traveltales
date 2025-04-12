@@ -6,7 +6,6 @@
   <title>Travel Tales - Explore the World</title>
   <link rel="stylesheet" href="" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     :root {
   --primary: #ff6347;
@@ -371,22 +370,5 @@ a {
   <footer class="footer">
     <p>&copy; 2025 Travel Tales. All rights reserved.</p>
   </footer>
-
-  <script>
-    lucide.createIcons();
-  
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggle = document.getElementById('menuToggle');
-      const navLinks = document.getElementById('navLinks');
-  
-      toggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        toggle.innerHTML = navLinks.classList.contains('active')
-          ? '<i data-lucide="x"></i>'
-          : '<i data-lucide="menu"></i>';
-        lucide.createIcons();
-      });
-    });
-  </script>
 </body>
 </html>

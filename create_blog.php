@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-// Get country list
+
 $countryQuery = "SELECT country_id, country_name FROM countries ORDER BY country_name ASC";
 $countryResult = $conn->query($countryQuery);
 ?>
@@ -38,7 +38,6 @@ $countryResult = $conn->query($countryQuery);
   <title>Create Blog | Travel Tales</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     :root {
       --primary: #ff6347;
@@ -238,6 +237,5 @@ $countryResult = $conn->query($countryQuery);
     <p>&copy; 2025 Travel Tales | All Rights Reserved</p>
   </footer>
 
-  <script>lucide.createIcons();</script>
 </body>
 </html>
