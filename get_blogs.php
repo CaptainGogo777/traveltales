@@ -21,17 +21,21 @@ if ($countryName) {
 
     // Search within selected country
     if ($searchTerm) {
-        $sqlBlogs = "SELECT b.title, b.author, b.date_published, b.summary, b.content, c.country_name 
+        $sqlBlogs = "SELECT b.blog_id, b.title, b.author, b.date_published, b.summary, b.content, 
+                     c.country_name, u.username, u.fullname, b.user_id
                      FROM blogs b 
                      JOIN countries c ON b.country_id = c.country_id 
+                     LEFT JOIN users u ON b.user_id = u.id
                      WHERE b.country_id = ? AND (b.title LIKE ? OR b.author LIKE ?)
                      ORDER BY b.date_published DESC";
         $stmtBlogs = $conn->prepare($sqlBlogs);
         $stmtBlogs->bind_param("iss", $countryId, $searchTerm, $searchTerm);
     } else {
-        $sqlBlogs = "SELECT b.title, b.author, b.date_published, b.summary, b.content, c.country_name 
+        $sqlBlogs = "SELECT b.blog_id, b.title, b.author, b.date_published, b.summary, b.content, 
+                     c.country_name, u.username, u.fullname, b.user_id
                      FROM blogs b 
                      JOIN countries c ON b.country_id = c.country_id 
+                     LEFT JOIN users u ON b.user_id = u.id
                      WHERE b.country_id = ? 
                      ORDER BY RAND() LIMIT 5";
         $stmtBlogs = $conn->prepare($sqlBlogs);
@@ -39,9 +43,11 @@ if ($countryName) {
     }
 } elseif ($searchTerm) {
     // Global search without specific country
-    $sqlBlogs = "SELECT b.title, b.author, b.date_published, b.summary, b.content, c.country_name 
+    $sqlBlogs = "SELECT b.blog_id, b.title, b.author, b.date_published, b.summary, b.content, 
+                 c.country_name, u.username, u.fullname, b.user_id
                  FROM blogs b 
                  JOIN countries c ON b.country_id = c.country_id 
+                 LEFT JOIN users u ON b.user_id = u.id
                  WHERE b.title LIKE ? OR b.author LIKE ? OR c.country_name LIKE ?
                  ORDER BY b.date_published DESC";
     $stmtBlogs = $conn->prepare($sqlBlogs);

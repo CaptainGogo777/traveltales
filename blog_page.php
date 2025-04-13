@@ -20,28 +20,34 @@ if ($countryName) {
     $countryId = $row['country_id'];
 
     if ($searchTerm) {
-        $sqlBlogs = "SELECT b.title, b.author, b.date_published, b.summary, b.content, c.country_name 
-                     FROM blogs b 
-                     JOIN countries c ON b.country_id = c.country_id 
-                     WHERE b.country_id = ? AND (b.title LIKE ? OR b.author LIKE ?)
-                     ORDER BY b.date_published DESC";
+        $sqlBlogs = "SELECT b.blog_id, b.title, b.author, b.date_published, b.summary, b.content, 
+                    c.country_name, u.username, u.fullname, b.user_id
+                    FROM blogs b 
+                    JOIN countries c ON b.country_id = c.country_id 
+                    LEFT JOIN users u ON b.user_id = u.id
+                    WHERE b.country_id = ? AND (b.title LIKE ? OR b.author LIKE ?)
+                    ORDER BY b.date_published DESC";
         $stmtBlogs = $conn->prepare($sqlBlogs);
         $stmtBlogs->bind_param("iss", $countryId, $searchTerm, $searchTerm);
     } else {
-        $sqlBlogs = "SELECT b.title, b.author, b.date_published, b.summary, b.content, c.country_name 
-                     FROM blogs b 
-                     JOIN countries c ON b.country_id = c.country_id 
-                     WHERE b.country_id = ? 
-                     ORDER BY RAND() LIMIT 5";
+        $sqlBlogs = "SELECT b.blog_id, b.title, b.author, b.date_published, b.summary, b.content, 
+                    c.country_name, u.username, u.fullname, b.user_id
+                    FROM blogs b 
+                    JOIN countries c ON b.country_id = c.country_id 
+                    LEFT JOIN users u ON b.user_id = u.id
+                    WHERE b.country_id = ? 
+                    ORDER BY RAND() LIMIT 5";
         $stmtBlogs = $conn->prepare($sqlBlogs);
         $stmtBlogs->bind_param("i", $countryId);
     }
 } elseif ($searchTerm) {
-    $sqlBlogs = "SELECT b.title, b.author, b.date_published, b.summary, b.content, c.country_name 
-                 FROM blogs b 
-                 JOIN countries c ON b.country_id = c.country_id 
-                 WHERE b.title LIKE ? OR b.author LIKE ? OR c.country_name LIKE ?
-                 ORDER BY b.date_published DESC";
+    $sqlBlogs = "SELECT b.blog_id, b.title, b.author, b.date_published, b.summary, b.content, 
+                c.country_name, u.username, u.fullname, b.user_id
+                FROM blogs b 
+                JOIN countries c ON b.country_id = c.country_id 
+                LEFT JOIN users u ON b.user_id = u.id
+                WHERE b.title LIKE ? OR b.author LIKE ? OR c.country_name LIKE ?
+                ORDER BY b.date_published DESC";
     $stmtBlogs = $conn->prepare($sqlBlogs);
     $stmtBlogs->bind_param("sss", $searchTerm, $searchTerm, $searchTerm);
 } else {
@@ -238,7 +244,15 @@ $blogs_result = $stmtBlogs->get_result();
       <?php while ($blog = $blogs_result->fetch_assoc()): ?>
         <div class="blog">
           <h3><?= htmlspecialchars($blog['title']) ?></h3>
-          <span>By <?= htmlspecialchars($blog['author']) ?> | <?= $blog['date_published'] ?></span>
+          <span>
+            <?php if (!empty($blog['username'])): ?>
+              By <strong><?= htmlspecialchars($blog['username']) ?></strong> 
+              (<?= htmlspecialchars($blog['author']) ?>)
+            <?php else: ?>
+              By <?= htmlspecialchars($blog['author']) ?>
+            <?php endif; ?>
+            | <?= $blog['date_published'] ?>
+          </span>
           <p><?= htmlspecialchars($blog['summary']) ?></p>
           <div class="full-content"><?= nl2br(htmlspecialchars($blog['content'])) ?></div>
           <a onclick="toggleFullContent(this)">Read More</a>

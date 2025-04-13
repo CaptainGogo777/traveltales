@@ -1,5 +1,14 @@
 <?php
 include 'connect.php';
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+  // Redirect to login page if not logged in
+  header("Location: login.html");
+  exit;
+}
+
 
 $message = "";
 
@@ -10,12 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $summary = $_POST['summary'];
     $content = $_POST['content'];
     $country_id = $_POST['country_id'];
+    $user_id = $_SESSION['user_id']; // Get user_id from session
     $date = date("Y-m-d");
 
-    $sql = "INSERT INTO blogs (title, author, summary, content, country_id, date_published) 
-            VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO blogs (title, author, summary, content, country_id, user_id, date_published) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssis", $title, $author, $summary, $content, $country_id, $date);
+    $stmt->bind_param("ssssiss", $title, $author, $summary, $content, $country_id, $user_id, $date);
 
     if ($stmt->execute()) {
         $message = "Blog successfully created!";
